@@ -5,12 +5,14 @@ import 'package:music_player_app/FirstPage.dart';
 class SecondPage extends StatefulWidget {
   const SecondPage({Key? key}) : super(key: key);
 
+
   @override
   State<SecondPage> createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
   @override
+  var count=0;
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -260,7 +262,7 @@ class _SecondPageState extends State<SecondPage> {
                                   ],
                                 ),
                                 SizedBox(
-                                  width: 30,
+                                  width: 25,
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(left: 80, top: 20),
@@ -273,25 +275,32 @@ class _SecondPageState extends State<SecondPage> {
                                             borderRadius:
                                                 BorderRadius.circular(25),
                                             color: Colors.white),
-                                        child: CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            child: Text(
-                                              "-",
-                                              style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontSize: 20),
-                                            )),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              count--;
+                                            });
+                                          },
+                                          child: CircleAvatar(
+                                              backgroundColor: Colors.white,
+                                              child: Text(
+                                                "-",
+                                                style: TextStyle(
+                                                    color: Colors.red,
+                                                    fontSize: 20),
+                                              )),
+                                        ),
                                       ),
                                       SizedBox(
                                         width: 10,
                                       ),
                                       Text(
-                                        "1",
+                                        "$count",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
                                       SizedBox(
-                                        width: 10,
+                                        width: 5,
                                       ),
                                       Container(
                                         decoration: BoxDecoration(
@@ -299,14 +308,21 @@ class _SecondPageState extends State<SecondPage> {
                                             borderRadius:
                                                 BorderRadius.circular(22),
                                             color: Colors.white),
-                                        child: CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            child: Text(
-                                              "+",
-                                              style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontSize: 20),
-                                            )),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              count++;
+                                            });
+                                          },
+                                          child: CircleAvatar(
+                                              backgroundColor: Colors.white,
+                                              child: Text(
+                                                "+",
+                                                style: TextStyle(
+                                                    color: Colors.red,
+                                                    fontSize: 20),
+                                              )),
+                                        ),
                                       ),
                                     ],
                                   ),

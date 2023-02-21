@@ -201,6 +201,9 @@ class _DetailPageState extends State<DetailPage> {
                                     SizedBox(
                                       height: 10,
                                     ),
+                                    Container(
+                                      height: 20,
+                                    ),
                                     Row(
                                       children: [
                                         Text(foods[index]['price']),
